@@ -10,13 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var Link = (function () {
-    function Link(n, a, _target) {
-        this.n = n;
-        this.a = a;
-        this._target = _target;
-        this.name = n;
-        this.alt = a;
-        this.target = _target;
+    function Link(name, alt, target) {
+        this.name = name;
+        this.alt = alt;
+        this.target = target;
     }
     return Link;
 }());

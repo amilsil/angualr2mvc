@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 
 export class Link {
-    name: string; 
-    alt: string;
-    target: string;
-
-    constructor(public n, public a, public _target){
-        this.name = n;
-        this.alt = a;
-        this.target = _target;
+    constructor(public name, public alt, public target){
     }
 }
 
