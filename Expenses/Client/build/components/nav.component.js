@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var Link = (function () {
     function Link(name, alt, target) {
         this.name = name;
@@ -21,15 +22,16 @@ exports.Link = Link;
 var NavComponent = (function () {
     function NavComponent() {
         this.links = [
-            new Link('Homess', 'Home page', '#home'),
-            new Link('About', 'About page', '#about'),
-            new Link('Documentation', 'Documentaiton of the API', '#documentation')
+            new Link('Home', 'Home page', '/home'),
+            new Link('About', 'About page', '/about'),
+            new Link('Documentation', 'Documentaiton of the API', '/documentation')
         ];
     }
     NavComponent = __decorate([
         core_1.Component({
-            selector: 'mainNav',
-            template: "\n    <nav class=\"navbar navbar-inverse\">\n        <div class=\"container\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"#\">Project name</a>\n            </div>\n            <div id=\"navbar\" class=\"collapse navbar-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li class=\"active\" *ngFor=\"let link of links\">\n                        <a href=\"{{link.target}}\">{{link.name}}</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    "
+            selector: 'main-nav',
+            template: "\n    <nav class=\"navbar navbar-inverse\">\n        <div class=\"container\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"#\">Project name</a>\n            </div>\n            <div id=\"navbar\" class=\"collapse navbar-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li class=\"active\" *ngFor=\"let link of links\">\n                        <a [routerLink]=\"[link.target]\">{{link.name}}</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    ",
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], NavComponent);

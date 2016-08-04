@@ -1,13 +1,14 @@
 ﻿import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { NavComponent } from './nav.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <mainNav></mainNav>
-        <h1>{{ title }}</h1>
+        <main-nav></main-nav>
+        <router-outlet></router-outlet>
         `,
-    directives: [NavComponent]
+    directives: [ ROUTER_DIRECTIVES, NavComponent ]
 })
 
 export class AppComponent {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 export class Link {
     constructor(public name, public alt, public target){
@@ -6,7 +7,7 @@ export class Link {
 }
 
 @Component ({
-    selector: 'mainNav',
+    selector: 'main-nav',
     template: 
     `
     <nav class="navbar navbar-inverse">
@@ -23,19 +24,20 @@ export class Link {
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active" *ngFor="let link of links">
-                        <a href="{{link.target}}">{{link.name}}</a>
+                        <a [routerLink]="[link.target]">{{link.name}}</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    `
+    `,
+    directives: [ ROUTER_DIRECTIVES ]
 })
 
 export class NavComponent {
     links: Link[] = [
-        new Link('Homess', 'Home page', '#home'),
-        new Link('About', 'About page', '#about'),
-        new Link('Documentation', 'Documentaiton of the API', '#documentation')
+        new Link('Home', 'Home page', '/home'),
+        new Link('About', 'About page', '/about'),
+        new Link('Documentation', 'Documentaiton of the API', '/documentation')
     ];
 }
