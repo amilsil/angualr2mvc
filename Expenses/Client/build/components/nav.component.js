@@ -10,7 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var Link = (function () {
-    function Link() {
+    function Link(n, a, _target) {
+        this.n = n;
+        this.a = a;
+        this._target = _target;
+        this.name = n;
+        this.alt = a;
+        this.target = _target;
     }
     return Link;
 }());
@@ -18,13 +24,15 @@ exports.Link = Link;
 var NavComponent = (function () {
     function NavComponent() {
         this.links = [
-            new Link(name = 'About')
+            new Link('Homess', 'Home page', '#home'),
+            new Link('About', 'About page', '#about'),
+            new Link('Documentation', 'Documentaiton of the API', '#documentation')
         ];
     }
     NavComponent = __decorate([
         core_1.Component({
             selector: 'mainNav',
-            template: "\n        <nav class=\"navbar navbar-inverse\">\n            <div class=\"container\">\n                <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"#\">Project name</a>\n                </div>\n                <div id=\"navbar\" class=\"collapse navbar-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li class=\"active\"><a href=\"#\">Home</a></li>\n                    <li><a href=\"#about\">About</a></li>\n                    <li><a href=\"#contact\">Contact</a></li>\n                </ul>\n                </div><!--/.nav-collapse -->\n            </div>\n        </nav>\n    "
+            template: "\n    <nav class=\"navbar navbar-inverse\">\n        <div class=\"container\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"#\">Project name</a>\n            </div>\n            <div id=\"navbar\" class=\"collapse navbar-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li class=\"active\" *ngFor=\"let link of links\">\n                        <a href=\"{{link.target}}\">{{link.name}}</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], NavComponent);
