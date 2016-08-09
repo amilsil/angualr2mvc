@@ -10,6 +10,10 @@ var routes = [
     {
         path: 'about',
         component: about_component_1.AboutComponent
+    },
+    {
+        path: '',
+        component: about_component_1.AboutComponent
     }
 ];
 exports.appRouterProviders = [

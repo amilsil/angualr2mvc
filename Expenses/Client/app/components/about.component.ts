@@ -4,9 +4,11 @@ import { Component } from '@angular/core';
     selector: 'about',
     template: 
     `
-    <h1> About </h1>
+    <h1> About {{y}} </h1>
     `
 })
 
 export class AboutComponent {
+    x = 10;
+    y = this.x * 5;
 }
