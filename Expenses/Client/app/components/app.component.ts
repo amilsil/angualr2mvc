@@ -6,7 +6,9 @@ import { NavComponent } from './nav.component';
     selector: 'my-app',
     template: `
         <main-nav></main-nav>
-        <router-outlet></router-outlet>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
         `,
     directives: [ ROUTER_DIRECTIVES, NavComponent ]
 })
